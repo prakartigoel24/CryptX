@@ -12,7 +12,7 @@ const Coins = () => {
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
   const [error, setError] = useState(null);
-  const [currency, setCurrency] = useState("inr");
+  const [currency, setCurrency] = useState("usd");
   const [page, setPage] = useState(1);
   
   const currency_symbol = currency_symbols[currency];
@@ -40,6 +40,20 @@ const Coins = () => {
       {loading ? (
         <Loader />
       ) : (
+        <>
+        <div className="bg-amber-950 text-white flex justify-center items-center py-4 my-4 rounded-full">
+        <h1 className="text-lg font-semibold">Change Currency : </h1>
+          {
+          
+           Object.keys(currency_symbols).map(key=>{
+            return (
+                <div className="px-4 py-1 mx-4 rounded-lg bg-white text-black font-medium hover:-translate-y-0.5 hover:bg-slate-300">
+                  <button onClick={()=>setCurrency(key)}>{key}</button>
+                </div>
+            );
+           })
+          }
+        </div>
         <div className="flex flex-wrap items-center justify-center w-full my-6">
           {coins.map((curr_item, id) => {
             return (
@@ -55,6 +69,10 @@ const Coins = () => {
             );
           })}
         </div>
+        <div>
+          
+        </div>
+        </>
       )}
     </>
   );
