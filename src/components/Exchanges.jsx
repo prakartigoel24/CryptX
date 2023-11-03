@@ -14,7 +14,7 @@ const Exchanges = () => {
   useEffect(() => {
     const fetchExchanges = async () => {
       try {
-        const { data } = await axios.get(`${baseURL}/exchfanges`);
+        const { data } = await axios.get(`${baseURL}/exchanges`);
         setLoading(false);
         setExchanges(data);
       } catch (error) {
