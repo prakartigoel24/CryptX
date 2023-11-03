@@ -4,19 +4,28 @@ import axios from "axios";
 import { baseURL } from "../main";
 import Loader from "./Loader";
 import ExchangeCard from "./ExchangeCard";
+import ErrorComponent from "./ErrorComponent";
 
 const Exchanges = () => {
   const [loading, setLoading] = useState(true);
   const [exchanges, setExchanges] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchExchanges = async () => {
-      const { data } = await axios.get(`${baseURL}/exchanges`);
-      setLoading(false);
-      setExchanges(data);
+      try {
+        const { data } = await axios.get(`${baseURL}/exchfanges`);
+        setLoading(false);
+        setExchanges(data);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
     };
     fetchExchanges();
   }, []);
+
+  if(error) return <ErrorComponent error={error}/>;
 
   return (
     <>
