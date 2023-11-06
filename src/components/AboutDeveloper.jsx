@@ -8,7 +8,7 @@ const AboutDeveloper = () => {
           Hello! <br /> I'm <span className="text-slate-400">Prakarti</span>{" "}
           a.k.a. <span className="text-slate-400">Praks</span>
         </h1>
-        <img src="public\my_avatar.jpg" alt="Avatar..." width={400} />
+        <img src="/my_avatar.jpg" alt="Avatar..." width={400} />
       </div>
       <div className="font-serif m-8 bg-slate-300 text-black rounded-3xl text-lg p-4 text-justify">
         <h1 className="text-2xl font-black mb-6 text-center">
