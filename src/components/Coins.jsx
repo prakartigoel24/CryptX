@@ -14,8 +14,8 @@ const Coins = () => {
   const [error, setError] = useState(null);
   const [currency, setCurrency] = useState("usd");
   const [page, setPage] = useState(1);
-  
   const currency_symbol = currency_symbols[currency];
+  const pageNums = new Array(110).fill(1); // filled with random val
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -47,8 +47,11 @@ const Coins = () => {
           
            Object.keys(currency_symbols).map(key=>{
             return (
-                <div className="px-4 py-1 mx-4 rounded-lg bg-white text-black font-medium hover:-translate-y-0.5 hover:bg-slate-300">
-                  <button onClick={()=>setCurrency(key)}>{key}</button>
+                <div key={key} className="px-4 py-1 mx-4 rounded-lg bg-white text-black font-medium hover:-translate-y-0.5 hover:bg-slate-300">
+                  <button onClick={()=>{
+                    setLoading(true);
+                    setCurrency(key)}}>
+                  {key}</button>
                 </div>
             );
            })
@@ -69,8 +72,16 @@ const Coins = () => {
             );
           })}
         </div>
-        <div>
-          
+        <div className="overflow-auto flex m-4">
+          {
+            pageNums.map((item,index)=>{
+              return(
+                <button key={index} className="flex items-center justify-center rounded-xl bg-black text-white px-6 py-2 m-3 w-10" onClick={()=> {
+                  setLoading(true);
+                  setPage(index+1)}}>{index+1}</button>
+              );
+            })
+          }
         </div>
         </>
       )}
