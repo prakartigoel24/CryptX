@@ -76,7 +76,7 @@ const Coins = () => {
           {
             pageNums.map((item,index)=>{
               return(
-                <button key={index} className="flex items-center justify-center rounded-xl bg-black text-white px-6 py-2 m-3 w-10" onClick={()=> {
+                <button key={index} className="flex items-center justify-center rounded-xl bg-black text-white px-6 py-2 m-3 w-10 transition hover:bg-slate-700 hover:translate-y-0.5" onClick={()=> {
                   setLoading(true);
                   setPage(index+1)}}>{index+1}</button>
               );

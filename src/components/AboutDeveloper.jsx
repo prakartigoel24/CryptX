@@ -4,7 +4,7 @@ const AboutDeveloper = () => {
   return (
     <div className="flex flex-col mt-4 bg-gradient-to-r from-black via-gray-500 text-slate-400 to-black p-2 items-center justify-center ">
       <div className="flex p-6 items-center justify-center">
-        <h1 class="text-white text-4xl text-center m-4">
+        <h1 className="text-white text-4xl text-center m-4">
           Hello! <br /> I'm <span className="text-slate-400">Prakarti</span>{" "}
           a.k.a. <span className="text-slate-400">Praks</span>
         </h1>
