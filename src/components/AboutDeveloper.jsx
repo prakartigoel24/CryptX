@@ -4,17 +4,17 @@ const AboutDeveloper = () => {
   return (
     <div className="flex flex-col mt-4 bg-gradient-to-r from-black via-gray-500 text-slate-400 to-black p-2 items-center justify-center ">
       <div className="flex p-6 items-center justify-center">
-        <h1 className="text-white text-4xl text-center m-4">
+        <h1 className="text-white text-lg text-center m-4">
           Hello! <br /> I'm <span className="text-slate-400">Prakarti</span>{" "}
           a.k.a. <span className="text-slate-400">Praks</span>
         </h1>
-        <img src="/my_avatar.jpg" alt="Avatar..." width={400} />
+        <img src="/my_avatar.jpg" alt="Avatar..." width={180} />
       </div>
       <div className="font-serif m-8 bg-slate-300 text-black rounded-3xl text-lg p-4 text-justify">
-        <h1 className="text-2xl font-black mb-6 text-center">
+        <h1 className="text-xl font-black mb-6 text-center text-fuchsia-900">
          A passionate learner , coder and developer
         </h1>
-        <p className="text-red-950 pl-16 pr-16">
+        <p className="text-red-950 text-justify">
           👋 I'm Prakarti Goel, the creative mind behind this project with some inspiration from my mentors. I'm a
           dedicated and passionate developer currently in my <span className="font-semibold">last year</span> of
           college pursuing <span className="font-semibold">B.Tech in Computer Science and Engineering</span>.
