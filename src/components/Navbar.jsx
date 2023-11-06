@@ -4,7 +4,7 @@ import Branding from "./Branding";
 
 const Navbar = () => {
   return (
-    <div className="bg-black text-white sticky flex justify-between items-center mx-auto px-5">
+    <div className="bg-black text-white sticky flex justify-between items-center mx-auto px-5 z-50">
       <Branding/>
       <div className="flex gap-4">
         <Link to="/" className="hover:text-gray-400">Home</Link>
