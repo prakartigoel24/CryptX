@@ -42,12 +42,12 @@ const Coins = () => {
       ) : (
         <>
         <div className="bg-amber-950 text-white flex justify-center items-center py-4 my-4 mx-3 rounded-full px-6">
-        <h1 className="text-md font-semibold">Change Currency :</h1>
+        <h1 className="text-md md:text-xl font-semibold">Change Currency :</h1>
           {
           
            Object.keys(currency_symbols).map(key=>{
             return (
-                <div key={key} className="px-3 py-1 mx-1.5 rounded-lg bg-white text-black font-medium hover:-translate-y-0.5 hover:bg-slate-300">
+                <div key={key} className="px-3 py-1 mx-1.5 rounded-lg bg-white text-black md:text-xl md:mx-3 font-medium hover:-translate-y-0.5 hover:bg-slate-300">
                   <button onClick={()=>{
                     setLoading(true);
                     setCurrency(key)}}>
