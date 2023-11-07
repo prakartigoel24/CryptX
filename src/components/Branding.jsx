@@ -2,9 +2,9 @@ import React from 'react'
 
 const Branding = () => {
   return (
-    <div className='flex items-center justify-start'>
-        <img src="/logo.png" alt="Logo-Here" height={10} width={75}/>
-        <strong className='text-3xl'>CryptX</strong>
+    <div className='flex items-center'>
+        <img src="/logo.png" alt="Logo-Here" height={10} width={75} className='md:w-20 lg:w-20'/>
+        <strong className='text-xl sm:text-2xl md:text-2xl lg:text-2xl'>CryptX</strong>
     </div>
   )
 }
