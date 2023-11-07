@@ -5,11 +5,25 @@ import { baseURL } from "../main";
 import Loader from "./Loader";
 import ExchangeCard from "./ExchangeCard";
 import ErrorComponent from "./ErrorComponent";
+import { BsSearch } from "react-icons/bs";
 
 const Exchanges = () => {
   const [loading, setLoading] = useState(true);
   const [exchanges, setExchanges] = useState([]);
   const [error, setError] = useState(null);
+  const [query, setQuery] = useState("");
+
+  const handleInput = (event) => {
+    setQuery(event.target.value);
+  };
+
+  let filterExchanges = exchanges.filter((exchange) => {
+    if (query === "") {
+      return exchange;
+    } else if (exchange.name.toLowerCase().includes(query.toLowerCase())) {
+      return exchange;
+    }
+  });
 
   useEffect(() => {
     const fetchExchanges = async () => {
@@ -25,25 +39,38 @@ const Exchanges = () => {
     fetchExchanges();
   }, []);
 
-  if(error) return <ErrorComponent error={error}/>;
+  if (error) return <ErrorComponent error={error} />;
 
   return (
     <>
       {loading ? (
         <Loader />
       ) : (
-        <div className="flex flex-wrap items-center justify-center w-full my-6">
-          {exchanges.map((curr_item, id) => {
-            return (
-              <ExchangeCard
-                key={curr_item.id}
-                name={curr_item.name}
-                img={curr_item.image}
-                rank={curr_item.trust_score_rank}
-                url={curr_item.url}
-              />
-            );
-          })}
+        <div>
+          <div className="flex justify-center items-center text-gray-500">
+            <BsSearch className="relative left-52 w-4 h-4"/>
+            <input
+              className="py-4 px-4 m-4 rounded-2xl flex justify-center items-center bg-red-200 hover: outline-red-700"
+              value={query}
+              type="text"
+              placeholder="Search"
+              onChange={handleInput}
+            />
+          </div>
+          <div className="flex flex-wrap items-center justify-center w-full my-6">
+            {filterExchanges.map((curr_item, id) => {
+              return (
+                <ExchangeCard
+                  id={id}
+                  key={curr_item.id}
+                  name={curr_item.name}
+                  img={curr_item.image}
+                  rank={curr_item.trust_score_rank}
+                  url={curr_item.url}
+                />
+              );
+            })}
+          </div>
         </div>
       )}
     </>
